@@ -119,19 +119,41 @@ def calculate_closest_places(user_coords):
         print(f"KML Calculation Error: {e}")
         return f"計算中にエラーが発生しました。\n{str(e)}"
 
+```python id="gck30z"
 def send_line_reply(reply_token, reply_text):
-    # 【最重要】LINE公式の正しいReply URL
-    url = "https://line.me"
+
+    # LINE Messaging API の正式Replyエンドポイント
+    url = "https://api.line.me/v2/bot/message/reply"
+
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
     }
+
+    # LINEメッセージ長制限対策
+    reply_text = reply_text[:4500]
+
     payload = {
         "replyToken": reply_token,
-        "messages": [{"type": "text", "text": reply_text}]
+        "messages": [
+            {
+                "type": "text",
+                "text": reply_text
+            }
+        ]
     }
-    res = requests.post(url, headers=headers, json=payload)
-    print(f"LINE Reply HTTP Status: {res.status_code} - Response: {res.text}")
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    try:
+        res = requests.post(
+            url,
+            headers=headers,
+            json=payload,
+            timeout=10
+        )
+
+        print(f"LINE Reply HTTP Status: {res.status_code}")
+        print(f"LINE Reply Response: {res.text}")
+
+    except Exception as e:
+        print(f"LINE Reply Error: {e}")
+
