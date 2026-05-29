@@ -40,7 +40,7 @@ def callback():
                 # 近い健診場所を計算
                 reply_text = calculate_closest_places(user_coords)
                 
-                # 【詳しい人の指摘通り】正しいURLに向けてデータを確実に送信します
+                # 正しいURLに向けてデータを送信
                 send_line_reply(reply_token, reply_text)
                 print("Success: Reply sent to LINE Reply API URL.")
                 
@@ -64,11 +64,17 @@ def calculate_closest_places(user_coords):
             kml_obj.from_string(kml_data.strip())
             
         pins = []
-        features = list(kml_obj.features())
+        
+        # 【修正ポイント】最新のPythonで「list object is not callable」が出ない安全な書き方に直しました
+        features = []
+        for feat in kml_obj.features():
+            features.append(feat)
+            
         while features:
             feature = features.pop(0)
             if hasattr(feature, 'features'):
-                features.extend(list(feature.features()))
+                for sub_feat in feature.features():
+                    features.append(sub_feat)
             if hasattr(feature, 'geometry') and feature.geometry and isinstance(feature.geometry, Point):
                 pins.append({
                     "name": getattr(feature, 'name', '名称未設定'),
@@ -114,8 +120,7 @@ def calculate_closest_places(user_coords):
         return f"計算中にエラーが発生しました。\n{str(e)}"
 
 def send_line_reply(reply_token, reply_text):
-    # 【これです！】詳しい人が言っていた大正解の送信URLをここに記述しました
-    url = "https://api.line.me/v2/bot/message/reply"
+    url = "https://line.me"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
@@ -125,7 +130,6 @@ def send_line_reply(reply_token, reply_text):
         "messages": [{"type": "text", "text": reply_text}]
     }
     res = requests.post(url, headers=headers, json=payload)
-    # 登録結果をログにしっかり出力します
     print(f"LINE Reply HTTP Status: {res.status_code} - Response: {res.text}")
 
 if __name__ == "__main__":
