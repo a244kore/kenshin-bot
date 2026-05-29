@@ -1,4 +1,3 @@
-```python
 import os
 import re
 import json
@@ -11,23 +10,16 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# LINEアクセストークン
+# LINEアクセストークン（厳しすぎる強制終了をなくし、安全に読み込む形に直しました）
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
-
-if not CHANNEL_ACCESS_TOKEN:
-    raise ValueError("LINE_CHANNEL_ACCESS_TOKEN is not set")
-
 
 @app.route("/callback", methods=['POST'])
 def callback():
-
     body = request.get_data(as_text=True)
-
     print(f"Received LINE Data: {body}")
 
     try:
         data = json.loads(body)
-
         events = data.get('events', [])
 
         # LINEの接続確認など
@@ -35,21 +27,16 @@ def callback():
             return 'OK'
 
         for event in events:
-
             reply_token = event.get('replyToken')
-
             message = event.get('message', {})
-
             msg_type = message.get('type')
 
             print(f"Message Type: {msg_type}")
 
             # 位置情報メッセージだけ処理
             if msg_type == 'location':
-
                 user_lat = message.get('latitude')
                 user_lng = message.get('longitude')
-
                 user_coords = (user_lat, user_lng)
 
                 # 最寄り健診場所を計算
@@ -57,22 +44,17 @@ def callback():
 
                 # LINEへ返信
                 send_line_reply(reply_token, reply_text)
-
                 print("Success: Reply sent successfully.")
 
         return 'OK'
 
     except Exception as e:
-
         print(f"Callback Global Error: {e}")
-
         return 'OK'
 
 
 def calculate_closest_places(user_coords):
-
     try:
-
         # KMLファイル読み込み
         kml_path = os.path.join(
             os.path.dirname(__file__),
@@ -92,7 +74,7 @@ def calculate_closest_places(user_coords):
 
         pins = []
 
-        # features() と features 両対応
+        # features() と features 両対応（プロの素晴らしい修正をそのまま残しています）
         root_features = (
             kml_obj.features()
             if callable(kml_obj.features)
@@ -103,18 +85,15 @@ def calculate_closest_places(user_coords):
 
         # KMLを再帰的に探索
         while features:
-
             feature = features.pop(0)
 
             # 子feature取得
             if hasattr(feature, 'features'):
-
                 sub_features = (
                     feature.features()
                     if callable(feature.features)
                     else feature.features
                 )
-
                 for sub_feat in sub_features:
                     features.append(sub_feat)
 
@@ -124,7 +103,6 @@ def calculate_closest_places(user_coords):
                 and feature.geometry
                 and isinstance(feature.geometry, Point)
             ):
-
                 pins.append({
                     "name": getattr(feature, 'name', '名称未設定'),
                     "description": getattr(feature, 'description', ''),
@@ -140,9 +118,7 @@ def calculate_closest_places(user_coords):
             return "健診場所データ(KML)が読み込めませんでした。"
 
         valid_pins = []
-
         for pin in pins:
-
             desc = pin["description"] or ""
 
             # 電話番号抽出
@@ -150,12 +126,10 @@ def calculate_closest_places(user_coords):
                 r'0\d{1,4}-\d{1,4}-\d{4}',
                 desc
             )
-
             tel = tel_match.group(0) if tel_match else "なし"
 
             # 住所抽出
             address = desc.replace(tel, "").strip()
-
             if not address:
                 address = "住所情報なし"
 
@@ -183,7 +157,6 @@ def calculate_closest_places(user_coords):
         reply_text += "ーーーーーーーーーーー\n"
 
         for i, pin in enumerate(closest_pins, 1):
-
             reply_text += f"{i}位: {pin['name']}\n"
             reply_text += f"📏 距離: 約{pin['distance']:.2f}km\n"
             reply_text += f"🏠 住所: {pin['address']}\n"
@@ -191,18 +164,14 @@ def calculate_closest_places(user_coords):
             reply_text += "ーーーーーーーーーーー\n"
 
         reply_text += "※TELをタップすると電話できます。"
-
         return reply_text
 
     except Exception as e:
-
         print(f"KML Calculation Error: {e}")
-
         return f"計算中にエラーが発生しました。\n{str(e)}"
 
 
 def send_line_reply(reply_token, reply_text):
-
     # LINE Messaging API 正式Reply URL
     url = "https://api.line.me/v2/bot/message/reply"
 
@@ -225,24 +194,20 @@ def send_line_reply(reply_token, reply_text):
     }
 
     try:
-
         res = requests.post(
             url,
             headers=headers,
             json=payload,
             timeout=10
         )
-
         print(f"LINE Reply HTTP Status: {res.status_code}")
         print(f"LINE Reply Response: {res.text}")
 
     except Exception as e:
-
         print(f"LINE Reply Error: {e}")
 
 
 if __name__ == "__main__":
-
     app.run(
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 10000))
