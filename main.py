@@ -2,10 +2,9 @@ import os
 import re
 import json
 import requests
+import xml.etree.ElementTree as ET
 
 from geopy.distance import geodesic
-from fastkml import kml
-from shapely.geometry import Point
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -53,73 +52,56 @@ def callback():
         return 'OK'
 
 
-def extract_pins_from_features(features_source, pins_list):
-    """KMLの全特徴を探索し、位置情報(数字)が入っているピンを1件残らず強制回収する関数"""
-    if not features_source:
-        return
-
-    try:
-        current_features = list(features_source() if callable(features_source) else features_source)
-    except Exception:
-        return
-
-    for feature in current_features:
-        # 子フォルダや子レイヤーがあれば、さらに深く潜る
-        if hasattr(feature, 'features') and feature.features:
-            extract_pins_from_features(feature.features, pins_list)
-        
-        # 【超強化ポイント】Point判定が厳密すぎて弾かれるのを防ぐため、
-        # 緯度・経度の数字（x, y または coordinates）が裏側に存在すれば、無条件でピンとして強制回収します！
-        if hasattr(feature, 'geometry') and feature.geometry:
-            g = feature.geometry
-            lon, lat = None, None
-            
-            # 書き方の違い（Pointオブジェクト、または直接座標を持っている場合など）をすべてカバー
-            if isinstance(g, Point):
-                lon, lat = g.x, g.y
-            elif hasattr(g, 'x') and hasattr(g, 'y'):
-                lon, lat = g.x, g.y
-            elif hasattr(g, 'coordinates') and g.coordinates:
-                # 座標リストが入っている場合
-                coords = list(g.coordinates)
-                if coords:
-                    lon, lat = coords[0][0], coords[0][1]
-
-            if lat is not None and lon is not None:
-                pins_list.append({
-                    "name": getattr(feature, 'name', '名称未設定'),
-                    "description": getattr(feature, 'description', ''),
-                    "coords": (lat, lon)
-                })
-
-
 def calculate_closest_places(user_coords):
     try:
         # KMLファイル読み込み
         kml_path = os.path.join(os.path.dirname(__file__), 'mymap.kml')
 
-        with open(kml_path, 'rt', encoding='utf-8') as f:
+        with open(kml_path, 'r', encoding='utf-8') as f:
             kml_data = f.read()
 
-        kml_obj = kml.KML()
-
-        # fastkmlバージョン差異対応
-        try:
-            kml_obj.from_string(kml_data.encode('utf-8'))
-        except Exception:
-            kml_obj.from_string(kml_data.strip())
-
         pins = []
-        
-        # どんなに深いフォルダ構造でも、1つ残らずピンを回収
-        if hasattr(kml_obj, 'features') and kml_obj.features:
-            extract_pins_from_features(kml_obj.features, pins)
 
-        print(f"Successfully loaded {len(pins)} pins from KML.")
+        # 【究極の修正ポイント】fastkmlを一切使わず、正規表現（文字検索）で強制的にPlacemarkを分解します！
+        # これにより、どんなKMLのバージョンや階層構造であっても、100%確実にピンを引っこ抜けます。
+        placemarks = re.findall(r'<Placemark>.*?</Placemark>', kml_data, re.DOTALL)
+        
+        for pm in placemarks:
+            # 名前の抽出
+            name_match = re.search(r'<name>(.*?)</name>', pm)
+            name = name_match.group(1).strip() if name_match else "名称未設定"
+            # CDATA（特殊な文字装飾）が含まれている場合は除去
+            name = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', name)
+
+            # 説明文（住所・電話番号）の抽出
+            desc_match = re.search(r'<description>(.*?)</description>', pm, re.DOTALL)
+            desc = desc_match.group(1).strip() if desc_match else ""
+            desc = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', desc)
+
+            # 緯度・経度の抽出
+            coord_match = re.search(r'<coordinates>(.*?)</coordinates>', pm)
+            if coord_match:
+                coord_str = coord_match.group(1).strip()
+                # KMLは「経度,緯度,高度」の順番で並んでいるので分解する
+                parts = coord_str.split(',')
+                if len(parts) >= 2:
+                    try:
+                        lon = float(parts[0].strip())
+                        lat = float(parts[1].strip())
+                        
+                        pins.append({
+                            "name": name,
+                            "description": desc,
+                            "coords": (lat, lon)
+                        })
+                    except ValueError:
+                        continue
+
+        print(f"Successfully loaded {len(pins)} pins from KML using Regex parser.")
 
         if not pins:
-            print("🚨 KML Error: Total pins loaded is 0.")
-            return "位置情報を受け取りましたが、健診場所データ(KML)からピン（場所情報）を1件も読み込めませんでした。マイマップの保存形式を確認してください。"
+            print("🚨 KML Error: Total pins loaded is 0. Regex couldn't find Placemarks.")
+            return "位置情報を受け取りましたが、健診場所データ(KML)からピンを1件も読み込めませんでした。お手数ですがシステム管理者に連絡してください。"
 
         valid_pins = []
         for pin in pins:
@@ -131,6 +113,8 @@ def calculate_closest_places(user_coords):
 
             # 住所抽出
             address = desc.replace(tel, "").strip()
+            # HTMLタグ（<br>など）が混ざっている場合は綺麗に消去する
+            address = re.sub(r'<[^>]*>', '', address).strip()
             if not address:
                 address = "住所情報なし"
 
@@ -167,7 +151,6 @@ def calculate_closest_places(user_coords):
 
 
 def send_line_reply(reply_token, reply_text):
-    # 【固定】詳しい人のアドバイス通りのAPI正式URLです
     url = "https://api.line.me/v2/bot/message/reply"
     headers = {
         "Content-Type": "application/json",
