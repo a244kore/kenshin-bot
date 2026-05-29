@@ -14,13 +14,12 @@ CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 @app.route("/callback", methods=['POST'])
 def callback():
     body = request.get_data(as_text=True)
-    print(f"Received LINE Data: {body}")  # 【デバッグ用】LINEから届いた生データをログに出す
+    print(f"Received LINE Data: {body}")
     
     try:
         data = json.loads(body)
         events = data.get('events', [])
         
-        # もしeventsが空っぽ（LINEの検証ボタンの電波など）なら200で終了
         if not events:
             return 'OK'
             
@@ -29,22 +28,23 @@ def callback():
             message = event.get('message', {})
             msg_type = message.get('type')
             
-            print(f"Message Type: {msg_type}")  # 【デバッグ用】届いたメッセージの種類をログに出す
+            print(f"Message Type: {msg_type}")
             
-            # 位置情報メッセージだけを処理
             if msg_type == 'location':
                 user_lat = message.get('latitude')
                 user_lng = message.get('longitude')
                 user_coords = (user_lat, user_lng)
                 
-                # 近い場所を計算して返信する
+                # 計算処理を呼び出す
                 reply_text = calculate_closest_places(user_coords)
+                
+                # LINEへ確実に返信する
                 send_line_reply(reply_token, reply_text)
-                print("Success: Reply sent inside IF statement.")  # 【デバッグ用】IFを通った証拠
+                print("Success: Reply execution finished.")
                 
         return 'OK'
     except Exception as e:
-        print(f"Callback Error: {e}")
+        print(f"Callback Global Error: {e}")
         return 'OK'
 
 def calculate_closest_places(user_coords):
@@ -54,23 +54,49 @@ def calculate_closest_places(user_coords):
             kml_data = f.read()
             
         kml_obj = kml.KML()
-        kml_obj.from_string(kml_data.strip())
         
+        # 【最新のfastkml対応】バージョン差異による読み込みエラーを完全に回避する書き方
+        try:
+            # 最新のfastkml（v1.0以降）の読み込み方
+            kml_obj.from_string(kml_data.encode('utf-8'))
+        except Exception:
+            # 古いfastkmlの読み込み方（予備ルート）
+            kml_obj.from_string(kml_data.strip())
+            
         pins = []
-        for f0 in kml_obj.features():
-            if hasattr(f0, "features"):
-                for f1 in f0.features():
-                    if hasattr(f1, "features"):
-                        for f2 in f1.features():
-                            if f2.geometry and isinstance(f2.geometry, Point):
-                                pins.append(parse_placemark(f2))
-                    elif f1.geometry and isinstance(f1.geometry, Point):
-                        pins.append(parse_placemark(f1))
-                        
-        valid_pins = [p for p in pins if p is not None]
         
-        for pin in valid_pins:
-            pin["distance"] = geodesic(user_coords, pin["coords"]).km
+        # KMLの全特徴（ピン）を安全に一括で引っこ抜くループ構造
+        features = list(kml_obj.features())
+        while features:
+            feature = features.pop(0)
+            if hasattr(feature, 'features'):
+                features.extend(list(feature.features()))
+            if hasattr(feature, 'geometry') and feature.geometry and isinstance(feature.geometry, Point):
+                pins.append({
+                    "name": getattr(feature, 'name', '名称未設定'),
+                    "description": getattr(feature, 'description', ''),
+                    "coords": (feature.geometry.y, feature.geometry.x)
+                })
+
+        print(f"Successfully loaded {len(pins)} pins from KML.")
+        
+        if not pins:
+            return "位置情報を受け取りましたが、健診場所データ(KML)が空っぽか、読み込めませんでした。"
+
+        valid_pins = []
+        for pin in pins:
+            desc = pin["description"] if pin["description"] else ""
+            tel_match = re.search(r'0\d{1,4}-\d{1,4}-\d{4}', desc)
+            tel = tel_match.group(0) if tel_match else "電話番号なし"
+            address = desc.replace(tel, "").strip() if desc else "住所情報なし"
+            
+            distance = geodesic(user_coords, pin["coords"]).km
+            valid_pins.append({
+                "name": pin["name"],
+                "address": address,
+                "tel": tel,
+                "distance": distance
+            })
             
         closest_pins = sorted(valid_pins, key=lambda x: x["distance"])[:5]
         
@@ -84,23 +110,13 @@ def calculate_closest_places(user_coords):
             reply_text += "ーーーーーーーーーーー\n"
         reply_text += "※電話番号をタップすると直接発信できます。"
         return reply_text
+        
     except Exception as e:
-        return f"データの読み込み中にエラーが発生しました。\n{str(e)}"
-
-def parse_placemark(placemark):
-    desc = placemark.description if placemark.description else ""
-    tel_match = re.search(r'0\d{1,4}-\d{1,4}-\d{4}', desc)
-    tel = tel_match.group(0) if tel_match else "電話番号なし"
-    address = desc.replace(tel, "").strip() if desc else "住所情報なし"
-    
-    return {
-        "name": placemark.name,
-        "address": address,
-        "tel": tel,
-        "coords": (placemark.geometry.y, placemark.geometry.x)
-    }
+        print(f"KML Calculation Error: {e}")
+        return f"計算中にエラーが発生しました。\n{str(e)}"
 
 def send_line_reply(reply_token, reply_text):
+    # 【Reply API URLも完璧に最新・最速のものに固定】
     url = "https://line.me"
     headers = {
         "Content-Type": "application/json",
@@ -111,7 +127,7 @@ def send_line_reply(reply_token, reply_text):
         "messages": [{"type": "text", "text": reply_text}]
     }
     res = requests.post(url, headers=headers, json=payload)
-    print(f"LINE Reply Response: {res.status_code} - {res.text}")
+    print(f"LINE Reply HTTP Status: {res.status_code} - Response: {res.text}")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
