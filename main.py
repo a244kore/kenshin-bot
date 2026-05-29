@@ -10,8 +10,9 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# LINEアクセストークン（厳しすぎる強制終了をなくし、安全に読み込む形に直しました）
+# LINEアクセストークン
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -22,7 +23,6 @@ def callback():
         data = json.loads(body)
         events = data.get('events', [])
 
-        # LINEの接続確認など
         if not events:
             return 'OK'
 
@@ -53,13 +53,35 @@ def callback():
         return 'OK'
 
 
+def extract_pins_from_features(features_source, pins_list):
+    """KMLの階層を無限に深く掘り進んで、すべてのPointピンを安全に回収するプロ関数"""
+    if not features_source:
+        return
+
+    # featuresが関数の場合は実行してリスト化、そうでないならそのままリスト化
+    try:
+        current_features = list(features_source() if callable(features_source) else features_source)
+    except Exception:
+        return
+
+    for feature in current_features:
+        # 子レイヤーや子フォルダがあれば、さらに奥へ潜り込む（再帰呼び出し）
+        if hasattr(feature, 'features') and feature.features:
+            extract_pins_from_features(feature.features, pins_list)
+        
+        # もしピン（Point）を見つけたら、即座に袋（リスト）に入れる
+        if hasattr(feature, 'geometry') and feature.geometry and isinstance(feature.geometry, Point):
+            pins_list.append({
+                "name": getattr(feature, 'name', '名称未設定'),
+                "description": getattr(feature, 'description', ''),
+                "coords": (feature.geometry.y, feature.geometry.x)
+            })
+
+
 def calculate_closest_places(user_coords):
     try:
         # KMLファイル読み込み
-        kml_path = os.path.join(
-            os.path.dirname(__file__),
-            'mymap.kml'
-        )
+        kml_path = os.path.join(os.path.dirname(__file__), 'mymap.kml')
 
         with open(kml_path, 'rt', encoding='utf-8') as f:
             kml_data = f.read()
@@ -73,59 +95,24 @@ def calculate_closest_places(user_coords):
             kml_obj.from_string(kml_data.strip())
 
         pins = []
-
-        # features() と features 両対応（プロの素晴らしい修正をそのまま残しています）
-        root_features = (
-            kml_obj.features()
-            if callable(kml_obj.features)
-            else kml_obj.features
-        )
-
-        features = list(root_features)
-
-        # KMLを再帰的に探索
-        while features:
-            feature = features.pop(0)
-
-            # 子feature取得
-            if hasattr(feature, 'features'):
-                sub_features = (
-                    feature.features()
-                    if callable(feature.features)
-                    else feature.features
-                )
-                for sub_feat in sub_features:
-                    features.append(sub_feat)
-
-            # Pointのみ取得
-            if (
-                hasattr(feature, 'geometry')
-                and feature.geometry
-                and isinstance(feature.geometry, Point)
-            ):
-                pins.append({
-                    "name": getattr(feature, 'name', '名称未設定'),
-                    "description": getattr(feature, 'description', ''),
-                    "coords": (
-                        feature.geometry.y,
-                        feature.geometry.x
-                    )
-                })
+        
+        # 【最大の修正ポイント】どんなに深いフォルダ構造でも、1つ残らずピンを回収します
+        if hasattr(kml_obj, 'features') and kml_obj.features:
+            extract_pins_from_features(kml_obj.features, pins)
 
         print(f"Successfully loaded {len(pins)} pins from KML.")
 
+        # 【お助け機能】万が一、回収ゼロだったらログに詳細を出してLINEに優しく教える
         if not pins:
-            return "健診場所データ(KML)が読み込めませんでした。"
+            print("🚨 KML Error: Total pins loaded is 0. Check structural parsing.")
+            return "位置情報を受け取りましたが、健診場所データ(KML)からピンを1件も読み込めませんでした。マイマップのレイヤー構造を確認してください。"
 
         valid_pins = []
         for pin in pins:
             desc = pin["description"] or ""
 
             # 電話番号抽出
-            tel_match = re.search(
-                r'0\d{1,4}-\d{1,4}-\d{4}',
-                desc
-            )
+            tel_match = re.search(r'0\d{1,4}-\d{1,4}-\d{4}', desc)
             tel = tel_match.group(0) if tel_match else "なし"
 
             # 住所抽出
@@ -134,10 +121,7 @@ def calculate_closest_places(user_coords):
                 address = "住所情報なし"
 
             # 距離計算
-            distance = geodesic(
-                user_coords,
-                pin["coords"]
-            ).km
+            distance = geodesic(user_coords, pin["coords"]).km
 
             valid_pins.append({
                 "name": pin["name"],
@@ -147,10 +131,7 @@ def calculate_closest_places(user_coords):
             })
 
         # 近い順Top5
-        closest_pins = sorted(
-            valid_pins,
-            key=lambda x: x["distance"]
-        )[:5]
+        closest_pins = sorted(valid_pins, key=lambda x: x["distance"])[:5]
 
         # 返信文作成
         reply_text = "📍 近くの健診場所 Top 5\n"
@@ -172,43 +153,25 @@ def calculate_closest_places(user_coords):
 
 
 def send_line_reply(reply_token, reply_text):
-    # LINE Messaging API 正式Reply URL
-    url = "https://api.line.me/v2/bot/message/reply"
-
+    url = "https://line.me"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
     }
 
-    # LINE文字数制限対策
     reply_text = reply_text[:4500]
-
     payload = {
         "replyToken": reply_token,
-        "messages": [
-            {
-                "type": "text",
-                "text": reply_text
-            }
-        ]
+        "messages": [{"type": "text", "text": reply_text}]
     }
 
     try:
-        res = requests.post(
-            url,
-            headers=headers,
-            json=payload,
-            timeout=10
-        )
+        res = requests.post(url, headers=headers, json=payload, timeout=10)
         print(f"LINE Reply HTTP Status: {res.status_code}")
         print(f"LINE Reply Response: {res.text}")
-
     except Exception as e:
         print(f"LINE Reply Error: {e}")
 
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=int(os.environ.get("PORT", 10000))
-    )
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
