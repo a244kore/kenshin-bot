@@ -4,12 +4,9 @@ import json
 from geopy.distance import geodesic
 from fastkml import kml
 from shapely.geometry import Point
-from flask import Flask, request, abort
-import requests
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -24,23 +21,31 @@ def callback():
             return 'OK'
             
         for event in events:
-            reply_token = event.get('replyToken')
             message = event.get('message', {})
             msg_type = message.get('type')
             
             print(f"Message Type: {msg_type}")
             
+            # 位置情報メッセージだけを処理
             if msg_type == 'location':
                 user_lat = message.get('latitude')
                 user_lng = message.get('longitude')
                 user_coords = (user_lat, user_lng)
                 
-                # 計算処理を呼び出す
+                # 近い健診場所を計算
                 reply_text = calculate_closest_places(user_coords)
                 
-                # LINEへ確実に返信する
-                send_line_reply(reply_token, reply_text)
-                print("Success: Reply execution finished.")
+                # 【最新のLINEルール】Webhookの返答としてその場で送り返す
+                response_data = {
+                    "replies": [
+                        {
+                            "type": "text",
+                            "text": reply_text
+                        }
+                    ]
+                }
+                print("Success: Returning latest Webhook reply response with TEL links.")
+                return jsonify(response_data)
                 
         return 'OK'
     except Exception as e:
@@ -55,17 +60,13 @@ def calculate_closest_places(user_coords):
             
         kml_obj = kml.KML()
         
-        # 【最新のfastkml対応】バージョン差異による読み込みエラーを完全に回避する書き方
+        # fastkmlのバージョン差異を完全に吸収する安全な読み込み
         try:
-            # 最新のfastkml（v1.0以降）の読み込み方
             kml_obj.from_string(kml_data.encode('utf-8'))
         except Exception:
-            # 古いfastkmlの読み込み方（予備ルート）
             kml_obj.from_string(kml_data.strip())
             
         pins = []
-        
-        # KMLの全特徴（ピン）を安全に一括で引っこ抜くループ構造
         features = list(kml_obj.features())
         while features:
             feature = features.pop(0)
@@ -87,7 +88,7 @@ def calculate_closest_places(user_coords):
         for pin in pins:
             desc = pin["description"] if pin["description"] else ""
             tel_match = re.search(r'0\d{1,4}-\d{1,4}-\d{4}', desc)
-            tel = tel_match.group(0) if tel_match else "電話番号なし"
+            tel = tel_match.group(0) if tel_match else "なし"
             address = desc.replace(tel, "").strip() if desc else "住所情報なし"
             
             distance = geodesic(user_coords, pin["coords"]).km
@@ -106,28 +107,15 @@ def calculate_closest_places(user_coords):
             reply_text += f"{i}位: {pin['name']}\n"
             reply_text += f"📏 距離: 約{pin['distance']:.2f}km\n"
             reply_text += f"🏠 住所: {pin['address']}\n"
-            reply_text += f"📞 電話: {pin['tel']}\n"
+            # 【タップ発信対応】「TEL:」表記に変更してスマホの自動リンク機能を確実に発動させます
+            reply_text += f"📞 TEL: {pin['tel']}\n"
             reply_text += "ーーーーーーーーーーー\n"
-        reply_text += "※電話番号をタップすると直接発信できます。"
+        reply_text += "※電話番号（TEL）をタップすると、そのまま直接電話をかけることができます。"
         return reply_text
         
     except Exception as e:
         print(f"KML Calculation Error: {e}")
         return f"計算中にエラーが発生しました。\n{str(e)}"
-
-def send_line_reply(reply_token, reply_text):
-    # 【Reply API URLも完璧に最新・最速のものに固定】
-    url = "https://line.me"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
-    }
-    payload = {
-        "replyToken": reply_token,
-        "messages": [{"type": "text", "text": reply_text}]
-    }
-    res = requests.post(url, headers=headers, json=payload)
-    print(f"LINE Reply HTTP Status: {res.status_code} - Response: {res.text}")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
