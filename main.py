@@ -5,28 +5,16 @@ from geopy.distance import geodesic
 from fastkml import kml
 from shapely.geometry import Point
 from flask import Flask, request, abort
+import requests
 
 app = Flask(__name__)
 
-# LINEの秘密の鍵を環境変数から読み込む
-CHANNEL_SECRET = os.environ.get('LINE_CHANNEL_SECRET')
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    signature = request.headers.get('X-Line-Signature')
     body = request.get_data(as_text=True)
-
     try:
-        # 手動で簡易的にWebhookの署名検証とパースを行う
-        import hmac
-        import hashlib
-        import base64
-        hash = hmac.new(CHANNEL_SECRET.encode('utf-8'), body.encode('utf-8'), hashlib.sha256).digest()
-        cv_signature = base64.b64encode(hash).decode('utf-8')
-        if cv_signature != signature:
-            abort(400)
-            
         data = json.loads(body)
         events = data.get('events', [])
         for event in events:
@@ -45,12 +33,11 @@ def callback():
                 
         return 'OK'
     except Exception as e:
-        print(e)
-        abort(400)
+        print(f"Callback Error: {e}")
+        return 'OK'
 
 def calculate_closest_places(user_coords):
     try:
-        # 同じフォルダー内にあるmymap.kmlを読み込む
         kml_path = os.path.join(os.path.dirname(__file__), 'mymap.kml')
         with open(kml_path, 'rt', encoding='utf-8') as f:
             kml_data = f.read()
@@ -102,5 +89,18 @@ def parse_placemark(placemark):
         "coords": (placemark.geometry.y, placemark.geometry.x)
     }
 
+def send_line_reply(reply_token, reply_text):
+    url = "https://line.me"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
+    }
+    payload = {
+        "replyToken": reply_token,
+        "messages": [{"type": "text", "text": reply_text}]
+    }
+    res = requests.post(url, headers=headers, json=payload)
+    print(f"LINE Reply Response: {res.status_code} - {res.text}")
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
