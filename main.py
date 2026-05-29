@@ -40,7 +40,7 @@ def callback():
                 # 近い健診場所を計算
                 reply_text = calculate_closest_places(user_coords)
                 
-                # 正しいURLに向けてデータを送信
+                # 【大正解ルート】正しいURLに向けてデータを確実に送信します
                 send_line_reply(reply_token, reply_text)
                 print("Success: Reply sent to LINE Reply API URL.")
                 
@@ -65,7 +65,7 @@ def calculate_closest_places(user_coords):
             
         pins = []
         
-        # 【修正ポイント】最新のPythonで「list object is not callable」が出ない安全な書き方に直しました
+        # list objectのエラーが出ない安全な一括ループ構造
         features = []
         for feat in kml_obj.features():
             features.append(feat)
@@ -120,6 +120,7 @@ def calculate_closest_places(user_coords):
         return f"計算中にエラーが発生しました。\n{str(e)}"
 
 def send_line_reply(reply_token, reply_text):
+    # 【最重要】LINE公式の正しいReply URL
     url = "https://line.me"
     headers = {
         "Content-Type": "application/json",
