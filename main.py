@@ -153,7 +153,7 @@ def calculate_closest_places(user_coords):
 
 
 def send_line_reply(reply_token, reply_text):
-    url = "https://line.me"
+    url = "https://api.line.me/v2/bot/message/reply"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
