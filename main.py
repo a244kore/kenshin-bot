@@ -4,9 +4,13 @@ import json
 from geopy.distance import geodesic
 from fastkml import kml
 from shapely.geometry import Point
-from flask import Flask, request, jsonify
+from flask import Flask, request, abort
+import requests
 
 app = Flask(__name__)
+
+# LINEのアクセストークンを環境変数から読み込む
+CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -21,6 +25,7 @@ def callback():
             return 'OK'
             
         for event in events:
+            reply_token = event.get('replyToken')
             message = event.get('message', {})
             msg_type = message.get('type')
             
@@ -35,17 +40,9 @@ def callback():
                 # 近い健診場所を計算
                 reply_text = calculate_closest_places(user_coords)
                 
-                # 【最新のLINEルール】Webhookの返答としてその場で送り返す
-                response_data = {
-                    "replies": [
-                        {
-                            "type": "text",
-                            "text": reply_text
-                        }
-                    ]
-                }
-                print("Success: Returning latest Webhook reply response with TEL links.")
-                return jsonify(response_data)
+                # 【詳しい人の指摘通り】正しいURLに向けてデータを確実に送信します
+                send_line_reply(reply_token, reply_text)
+                print("Success: Reply sent to LINE Reply API URL.")
                 
         return 'OK'
     except Exception as e:
@@ -60,7 +57,7 @@ def calculate_closest_places(user_coords):
             
         kml_obj = kml.KML()
         
-        # fastkmlのバージョン差異を完全に吸収する安全な読み込み
+        # fastkmlのバージョン差異を吸収
         try:
             kml_obj.from_string(kml_data.encode('utf-8'))
         except Exception:
@@ -107,15 +104,29 @@ def calculate_closest_places(user_coords):
             reply_text += f"{i}位: {pin['name']}\n"
             reply_text += f"📏 距離: 約{pin['distance']:.2f}km\n"
             reply_text += f"🏠 住所: {pin['address']}\n"
-            # 【タップ発信対応】「TEL:」表記に変更してスマホの自動リンク機能を確実に発動させます
             reply_text += f"📞 TEL: {pin['tel']}\n"
             reply_text += "ーーーーーーーーーーー\n"
-        reply_text += "※電話番号（TEL）をタップすると、そのまま直接電話をかけることができます。"
+        reply_text += "※TELをタップすると、そのまま直接電話をかけることができます。"
         return reply_text
         
     except Exception as e:
         print(f"KML Calculation Error: {e}")
         return f"計算中にエラーが発生しました。\n{str(e)}"
+
+def send_line_reply(reply_token, reply_text):
+    # 【これです！】詳しい人が言っていた大正解の送信URLをここに記述しました
+    url = "https://api.line.me/v2/bot/message/reply"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {CHANNEL_ACCESS_TOKEN}"
+    }
+    payload = {
+        "replyToken": reply_token,
+        "messages": [{"type": "text", "text": reply_text}]
+    }
+    res = requests.post(url, headers=headers, json=payload)
+    # 登録結果をログにしっかり出力します
+    print(f"LINE Reply HTTP Status: {res.status_code} - Response: {res.text}")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
