@@ -1,0 +1,1877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>後期高齢者健康診査(75歳以上)</name>
+    <Style id="icon-1624-9C27B0-labelson">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Placemark>
+      <name>赤坂医院</name>
+      <address>岩手県盛岡市名須川町27-38</address>
+      <description><![CDATA[電話番号: 019-624-1225<br>所在地: 岩手県盛岡市名須川町27-38]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-1225</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市名須川町27-38</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>秋浜内科クリニック</name>
+      <address>岩手県盛岡市渋民字駅103番地</address>
+      <description><![CDATA[電話番号: 019-683-2333<br>所在地: 岩手県盛岡市渋民字駅103番地]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-683-2333</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市渋民字駅103番地</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>旭橋クリニック菊池循環器内科</name>
+      <address>岩手県盛岡市材木町2-26近三ビル3F</address>
+      <description><![CDATA[電話番号: 019-653-8511<br>所在地: 岩手県盛岡市材木町2-26近三ビル3F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-653-8511</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市材木町2-26近三ビル3F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>あべ菜園内科クリニック</name>
+      <address>岩手県盛岡市菜園2-5-29</address>
+      <description><![CDATA[電話番号: 019-623-7000<br>所在地: 岩手県盛岡市菜園2-5-29]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-623-7000</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市菜園2-5-29</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>あべ脳神経内科・物忘れクリニック</name>
+      <address>岩手県盛岡市中ノ橋通1-6-8monaka3F</address>
+      <description><![CDATA[電話番号: 019-606-3711<br>所在地: 岩手県盛岡市中ノ橋通1-6-8monaka3F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-606-3711</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通1-6-8monaka3F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>あべ内科・消化器科クリニック</name>
+      <address>岩手県盛岡市長橋町17-45</address>
+      <description><![CDATA[電話番号: 019-605-5311<br>所在地: 岩手県盛岡市長橋町17-45]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-605-5311</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市長橋町17-45</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>池田外科・消化器内科医院</name>
+      <address>岩手県盛岡市境田町5-18</address>
+      <description><![CDATA[電話番号: 019-648-3200<br>所在地: 岩手県盛岡市境田町5-18]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-648-3200</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市境田町5-18</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>池田内科</name>
+      <address>岩手県盛岡市上太田弘法清水10-3</address>
+      <description><![CDATA[電話番号: 019-659-0310<br>所在地: 岩手県盛岡市上太田弘法清水10-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-659-0310</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上太田弘法清水10-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>いしい内科・糖尿病クリニック</name>
+      <address>岩手県盛岡市中ノ橋通1-4-20水晶堂ビル4F</address>
+      <description><![CDATA[電話番号: 019-601-2277<br>所在地: 岩手県盛岡市中ノ橋通1-4-20水晶堂ビル4F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-2277</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通1-4-20水晶堂ビル4F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>石井内科消化器科医院</name>
+      <address>岩手県盛岡市東緑が丘23-26</address>
+      <description><![CDATA[電話番号: 019-662-1615<br>所在地: 岩手県盛岡市東緑が丘23-26]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-1615</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市東緑が丘23-26</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>いわて飯岡駅前内科クリニック</name>
+      <address>岩手県盛岡市永井17-36-1</address>
+      <description><![CDATA[電話番号: 019-637-1177<br>所在地: 岩手県盛岡市永井17-36-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-637-1177</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市永井17-36-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>岩手県対がん協会いわて健康管理センター</name>
+      <address>岩手県盛岡市西仙北1-17-18</address>
+      <description><![CDATA[電話番号: 019-635-8850<br>所在地: 岩手県盛岡市西仙北1-17-18]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-635-8850</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市西仙北1-17-18</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>岩手県予防医学協会</name>
+      <address>岩手県盛岡市北飯岡4-8-50</address>
+      <description><![CDATA[電話番号: 019-638-7185<br>所在地: 岩手県盛岡市北飯岡4-8-50]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-638-7185</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北飯岡4-8-50</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>臼井循環器呼吸器内科</name>
+      <address>岩手県盛岡市松園2-2-10</address>
+      <description><![CDATA[電話番号: 019-662-9845<br>所在地: 岩手県盛岡市松園2-2-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-9845</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市松園2-2-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>内丸病院</name>
+      <address>岩手県盛岡市本町通1-12-7</address>
+      <description><![CDATA[電話番号: 019-654-5331<br>所在地: 岩手県盛岡市本町通1-12-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-654-5331</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本町通1-12-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>えいづか内科胃腸科クリニック</name>
+      <address>岩手県盛岡市緑が丘4-1-7</address>
+      <description><![CDATA[電話番号: 019-663-7788<br>所在地: 岩手県盛岡市緑が丘4-1-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-663-7788</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市緑が丘4-1-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>エールクリニック盛岡</name>
+      <address>岩手県盛岡市中ノ橋通1-4-20水晶堂ビル5F</address>
+      <description><![CDATA[電話番号: 019-658-8282<br>所在地: 岩手県盛岡市中ノ橋通1-4-20水晶堂ビル5F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-658-8282</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通1-4-20水晶堂ビル5F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>江村胃腸科内科医院</name>
+      <address>岩手県盛岡市城西町7-33</address>
+      <description><![CDATA[電話番号: 019-623-4035<br>所在地: 岩手県盛岡市城西町7-33]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-623-4035</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市城西町7-33</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>おいかわ内科クリニック</name>
+      <address>岩手県盛岡市上田1-18-46</address>
+      <description><![CDATA[電話番号: 019-622-7400<br>所在地: 岩手県盛岡市上田1-18-46]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-7400</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上田1-18-46</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>逢坂医院</name>
+      <address>岩手県盛岡市長田町10-32</address>
+      <description><![CDATA[電話番号: 019-622-6016<br>所在地: 岩手県盛岡市長田町10-32]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-6016</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市長田町10-32</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大浦内科・歯科クリニック</name>
+      <address>岩手県盛岡市津志田西2-13-3</address>
+      <description><![CDATA[電話番号: 019-639-3315<br>所在地: 岩手県盛岡市津志田西2-13-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-639-3315</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田西2-13-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大澤クリニック</name>
+      <address>岩手県盛岡市茶畑2-8-3</address>
+      <description><![CDATA[電話番号: 019-652-0038<br>所在地: 岩手県盛岡市茶畑2-8-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-652-0038</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市茶畑2-8-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大手先内科循環器クリニック</name>
+      <address>岩手県盛岡市本町通1-8-9</address>
+      <description><![CDATA[電話番号: 019-651-2150<br>所在地: 岩手県盛岡市本町通1-8-9]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-651-2150</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本町通1-8-9</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>おおどおり鎌田内科クリニック</name>
+      <address>岩手県盛岡市大通2-5-12</address>
+      <description><![CDATA[電話番号: 019-606-5161<br>所在地: 岩手県盛岡市大通2-5-12]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-606-5161</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大通2-5-12</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大通りクリニック</name>
+      <address>岩手県盛岡市大通1-3-4宏陽ビル4F</address>
+      <description><![CDATA[電話番号: 019-656-8037<br>所在地: 岩手県盛岡市大通1-3-4宏陽ビル4F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-8037</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大通1-3-4宏陽ビル4F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大日向医院</name>
+      <address>岩手県盛岡市高松2-9-9</address>
+      <description><![CDATA[電話番号: 019-662-5530<br>所在地: 岩手県盛岡市高松2-9-9]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-5530</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市高松2-9-9</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>おおひら内科・循環器科クリニック</name>
+      <address>岩手県盛岡市梨木町2-2</address>
+      <description><![CDATA[電話番号: 019-606-3765<br>所在地: 岩手県盛岡市梨木町2-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-606-3765</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市梨木町2-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>大屋内科胃腸科クリニック</name>
+      <address>岩手県盛岡市西青山1-16-43</address>
+      <description><![CDATA[電話番号: 019-647-3255<br>所在地: 岩手県盛岡市西青山1-16-43]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-647-3255</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市西青山1-16-43</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>岡田消化器科内科医院</name>
+      <address>岩手県盛岡市清水町3-5</address>
+      <description><![CDATA[電話番号: 019-622-4266<br>所在地: 岩手県盛岡市清水町3-5]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-4266</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市清水町3-5</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>荻野病院</name>
+      <address>岩手県盛岡市本宮1-6-12</address>
+      <description><![CDATA[電話番号: 019-636-0317<br>所在地: 岩手県盛岡市本宮1-6-12]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-636-0317</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮1-6-12</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>おはようクリニック</name>
+      <address>岩手県盛岡市高松2-27-27</address>
+      <description><![CDATA[電話番号: 019-662-0840<br>所在地: 岩手県盛岡市高松2-27-27]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-0840</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市高松2-27-27</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>開運橋消化器内科クリニック</name>
+      <address>岩手県盛岡市大通3-9-3菱和開運メディカルビル2F</address>
+      <description><![CDATA[電話番号: 019-613-3336<br>所在地: 岩手県盛岡市大通3-9-3菱和開運メディカルビル2F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-613-3336</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大通3-9-3菱和開運メディカルビル2F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>加賀野消化器内科・内科クリニック</name>
+      <address>岩手県盛岡市天神町11-8</address>
+      <description><![CDATA[電話番号: 019-604-1123<br>所在地: 岩手県盛岡市天神町11-8]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-604-1123</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市天神町11-8</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>かつら内科クリニック</name>
+      <address>岩手県盛岡市本宮字小板小瀬13-2</address>
+      <description><![CDATA[電話番号: 019-658-1223<br>所在地: 岩手県盛岡市本宮字小板小瀬13-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-658-1223</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮字小板小瀬13-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>かなざわ内科クリニック</name>
+      <address>岩手県盛岡市上堂1-18-24</address>
+      <description><![CDATA[電話番号: 019-647-3057<br>所在地: 岩手県盛岡市上堂1-18-24]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-647-3057</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上堂1-18-24</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>金子胃腸科内科</name>
+      <address>岩手県盛岡市乙部13-135-3</address>
+      <description><![CDATA[電話番号: 019-696-2012<br>所在地: 岩手県盛岡市乙部13-135-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-696-2012</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市乙部13-135-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>かねこ内科クリニック</name>
+      <address>岩手県盛岡市月が丘1-1-63</address>
+      <description><![CDATA[電話番号: 019-647-3333<br>所在地: 岩手県盛岡市月が丘1-1-63]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-647-3333</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市月が丘1-1-63</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>鎌田内科クリニック</name>
+      <address>岩手県盛岡市本宮2-20-1</address>
+      <description><![CDATA[電話番号: 019-636-1725<br>所在地: 岩手県盛岡市本宮2-20-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-636-1725</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮2-20-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>川久保病院</name>
+      <address>岩手県盛岡市津志田26-30-1</address>
+      <description><![CDATA[電話番号: 019-635-1305<br>所在地: 岩手県盛岡市津志田26-30-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-635-1305</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田26-30-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>川村内科医院</name>
+      <address>岩手県盛岡市志家町4-4</address>
+      <description><![CDATA[電話番号: 019-651-6677<br>所在地: 岩手県盛岡市志家町4-4]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-651-6677</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市志家町4-4</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>久喜内科・脳神経内科医院</name>
+      <address>岩手県盛岡市緑が丘3-2-34</address>
+      <description><![CDATA[電話番号: 019-662-7177<br>所在地: 岩手県盛岡市緑が丘3-2-34]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-7177</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市緑が丘3-2-34</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>葛クリニック</name>
+      <address>岩手県盛岡市上田4-20-59</address>
+      <description><![CDATA[電話番号: 019-651-5433<br>所在地: 岩手県盛岡市上田4-20-59]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-651-5433</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上田4-20-59</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>くどう医院</name>
+      <address>岩手県盛岡市前九年3-16-15</address>
+      <description><![CDATA[電話番号: 019-647-3251<br>所在地: 岩手県盛岡市前九年3-16-15]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-647-3251</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市前九年3-16-15</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>工藤内科ハートクリニック</name>
+      <address>岩手県盛岡市中ノ橋通1-7-13</address>
+      <description><![CDATA[電話番号: 019-653-6811<br>所在地: 岩手県盛岡市中ノ橋通1-7-13]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-653-6811</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通1-7-13</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>久保田医院</name>
+      <address>岩手県盛岡市大館町26-10</address>
+      <description><![CDATA[電話番号: 019-646-9090<br>所在地: 岩手県盛岡市大館町26-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-646-9090</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大館町26-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>くぼ脳神経外科・頭痛クリニック</name>
+      <address>岩手県盛岡市津志田16-17-2</address>
+      <description><![CDATA[電話番号: 019-639-0123<br>所在地: 岩手県盛岡市津志田16-17-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-639-0123</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田16-17-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>くろだ脳神経・頭痛クリニック</name>
+      <address>岩手県盛岡市神明町10-38</address>
+      <description><![CDATA[電話番号: 019-653-3522<br>所在地: 岩手県盛岡市神明町10-38]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-653-3522</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市神明町10-38</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>くわた脳神経外科クリニック</name>
+      <address>岩手県盛岡市北飯岡1-2-68</address>
+      <description><![CDATA[電話番号: 019-656-5636<br>所在地: 岩手県盛岡市北飯岡1-2-68]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-5636</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北飯岡1-2-68</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>公園通りクリニック</name>
+      <address>岩手県盛岡市菜園1-6-13公園通りプラザビル2F</address>
+      <description><![CDATA[電話番号: 019-625-3008<br>所在地: 岩手県盛岡市菜園1-6-13公園通りプラザビル2F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-625-3008</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市菜園1-6-13公園通りプラザビル2F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>孝仁病院</name>
+      <address>岩手県盛岡市中太田泉田28</address>
+      <description><![CDATA[電話番号: 019-656-2888<br>所在地: 岩手県盛岡市中太田泉田28]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-2888</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中太田泉田28</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>小坂消化器内科クリニック</name>
+      <address>岩手県盛岡市永井24-3-7</address>
+      <description><![CDATA[電話番号: 019-605-6050<br>所在地: 岩手県盛岡市永井24-3-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-605-6050</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市永井24-3-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>児島内科医院</name>
+      <address>岩手県盛岡市みたけ3-11-36</address>
+      <description><![CDATA[電話番号: 019-641-3310<br>所在地: 岩手県盛岡市みたけ3-11-36]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-641-3310</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市みたけ3-11-36</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>こたに内科・甲状腺クリニック</name>
+      <address>岩手県盛岡市上厨川字横長根76-3</address>
+      <description><![CDATA[電話番号: 019-681-8818<br>所在地: 岩手県盛岡市上厨川字横長根76-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-681-8818</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上厨川字横長根76-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>菜園循環器内科医院</name>
+      <address>岩手県盛岡市菜園1-4-7</address>
+      <description><![CDATA[電話番号: 019-626-3211<br>所在地: 岩手県盛岡市菜園1-4-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-626-3211</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市菜園1-4-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>さかもと整形外科</name>
+      <address>岩手県盛岡市天神町11-3</address>
+      <description><![CDATA[電話番号: 019-623-8555<br>所在地: 岩手県盛岡市天神町11-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-623-8555</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市天神町11-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ささき医院</name>
+      <address>岩手県盛岡市中野1-27-10</address>
+      <description><![CDATA[電話番号: 019-653-0230<br>所在地: 岩手県盛岡市中野1-27-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-653-0230</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中野1-27-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>さとう胃腸科内科</name>
+      <address>岩手県盛岡市向中野1-11-25</address>
+      <description><![CDATA[電話番号: 019-635-0789<br>所在地: 岩手県盛岡市向中野1-11-25]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-635-0789</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市向中野1-11-25</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>佐藤内科クリニック</name>
+      <address>岩手県盛岡市大通3-1-24第三菱和ビル4F</address>
+      <description><![CDATA[電話番号: 019-626-1115<br>所在地: 岩手県盛岡市大通3-1-24第三菱和ビル4F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-626-1115</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大通3-1-24第三菱和ビル4F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>澤田内科医院</name>
+      <address>岩手県盛岡市上田1-6-11</address>
+      <description><![CDATA[電話番号: 019-654-1007<br>所在地: 岩手県盛岡市上田1-6-11]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-654-1007</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上田1-6-11</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>三愛病院</name>
+      <address>岩手県盛岡市月が丘1-29-15</address>
+      <description><![CDATA[電話番号: 019-641-6633<br>所在地: 岩手県盛岡市月が丘1-29-15]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-641-6633</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市月が丘1-29-15</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>渋民中央病院</name>
+      <address>岩手県盛岡市渋民字大前田53-2</address>
+      <description><![CDATA[電話番号: 019-683-2336<br>所在地: 岩手県盛岡市渋民字大前田53-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-683-2336</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市渋民字大前田53-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>循環器内科金矢クリニック</name>
+      <address>岩手県盛岡市津志田中央3-7-7</address>
+      <description><![CDATA[電話番号: 019-601-2900<br>所在地: 岩手県盛岡市津志田中央3-7-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-2900</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田中央3-7-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>小豆嶋胃腸科内科クリニック</name>
+      <address>岩手県盛岡市仙北3-13-20</address>
+      <description><![CDATA[電話番号: 019-636-1503<br>所在地: 岩手県盛岡市仙北3-13-20]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-636-1503</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市仙北3-13-20</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>白沢整形外科医院</name>
+      <address>岩手県盛岡市月が丘3-40-28</address>
+      <description><![CDATA[電話番号: 019-645-3666<br>所在地: 岩手県盛岡市月が丘3-40-28]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-645-3666</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市月が丘3-40-28</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>しんたろうクリニック</name>
+      <address>岩手県盛岡市本宮1-9-1</address>
+      <description><![CDATA[電話番号: 019-631-3110<br>所在地: 岩手県盛岡市本宮1-9-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-631-3110</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮1-9-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>鈴木内科医院</name>
+      <address>岩手県盛岡市八幡町2-17</address>
+      <description><![CDATA[電話番号: 019-623-3038<br>所在地: 岩手県盛岡市八幡町2-17]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-623-3038</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市八幡町2-17</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>鈴木内科神経内科</name>
+      <address>岩手県盛岡市黒石野2-9-58</address>
+      <description><![CDATA[電話番号: 019-661-2505<br>所在地: 岩手県盛岡市黒石野2-9-58]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-661-2505</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市黒石野2-9-58</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>たかしクリニック</name>
+      <address>岩手県盛岡市東仙北2-4-28</address>
+      <description><![CDATA[電話番号: 019-681-6731<br>所在地: 岩手県盛岡市東仙北2-4-28]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-681-6731</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市東仙北2-4-28</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>たぐち脳神経外科クリニック</name>
+      <address>岩手県盛岡市本町通1-4-19</address>
+      <description><![CDATA[電話番号: 019-621-1234<br>所在地: 岩手県盛岡市本町通1-4-19]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-621-1234</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本町通1-4-19</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>たたけ循環器内科クリニック</name>
+      <address>岩手県盛岡市北飯岡1-2-70</address>
+      <description><![CDATA[電話番号: 019-656-5855<br>所在地: 岩手県盛岡市北飯岡1-2-70]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-5855</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北飯岡1-2-70</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>田中循環器内科クリニック</name>
+      <address>岩手県盛岡市永井22-29-6</address>
+      <description><![CDATA[電話番号: 019-632-1320<br>所在地: 岩手県盛岡市永井22-29-6]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-632-1320</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市永井22-29-6</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>たにむらクリニック</name>
+      <address>岩手県盛岡市向中野2-42-10</address>
+      <description><![CDATA[電話番号: 019-601-2990<br>所在地: 岩手県盛岡市向中野2-42-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-2990</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市向中野2-42-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ちえ内科・外科クリニック</name>
+      <address>岩手県盛岡市上田1-1-19</address>
+      <description><![CDATA[電話番号: 019-601-6615<br>所在地: 岩手県盛岡市上田1-1-19]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-6615</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上田1-1-19</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ちだ内科・外科クリニック</name>
+      <address>岩手県盛岡市東安庭1-23-60</address>
+      <description><![CDATA[電話番号: 019-604-3755<br>所在地: 岩手県盛岡市東安庭1-23-60]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-604-3755</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市東安庭1-23-60</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ちばクリニック</name>
+      <address>岩手県盛岡市中央通3-1-10</address>
+      <description><![CDATA[電話番号: 019-605-8300<br>所在地: 岩手県盛岡市中央通3-1-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-605-8300</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中央通3-1-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>茶畑内科消化器内科クリニック</name>
+      <address>岩手県盛岡市茶畑1-8-2</address>
+      <description><![CDATA[電話番号: 019-613-3107<br>所在地: 岩手県盛岡市茶畑1-8-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-613-3107</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市茶畑1-8-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>つしだ糖尿病内科・眼科クリニック</name>
+      <address>岩手県盛岡市津志田15地割50-1</address>
+      <description><![CDATA[電話番号: 019-681-8541<br>所在地: 岩手県盛岡市津志田15地割50-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-681-8541</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田15地割50-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>遠山病院</name>
+      <address>岩手県盛岡市下ノ橋町6-14</address>
+      <description><![CDATA[電話番号: 019-651-2111<br>所在地: 岩手県盛岡市下ノ橋町6-14]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-651-2111</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市下ノ橋町6-14</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>栃内内科医院</name>
+      <address>岩手県盛岡市神明町10-35</address>
+      <description><![CDATA[電話番号: 019-624-5277<br>所在地: 岩手県盛岡市神明町10-35]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-5277</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市神明町10-35</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>とちない脳神経外科クリニック</name>
+      <address>岩手県盛岡市津志田中央3-17-10</address>
+      <description><![CDATA[電話番号: 019-637-7000<br>所在地: 岩手県盛岡市津志田中央3-17-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-637-7000</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田中央3-17-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>とりょう腎・泌尿器科クリニック</name>
+      <address>岩手県盛岡市中ノ橋通1-6-8monaka3F</address>
+      <description><![CDATA[電話番号: 019-601-3170<br>所在地: 岩手県盛岡市中ノ橋通1-6-8monaka3F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-3170</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通1-6-8monaka3F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>内科クリニックすずき</name>
+      <address>岩手県盛岡市北松園2-15-4</address>
+      <description><![CDATA[電話番号: 019-662-2888<br>所在地: 岩手県盛岡市北松園2-15-4]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-2888</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北松園2-15-4</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>なおや脳神経・頭痛クリニック</name>
+      <address>岩手県盛岡市本宮字小板小瀬13-4</address>
+      <description><![CDATA[電話番号: 019-656-3708<br>所在地: 岩手県盛岡市本宮字小板小瀬13-4]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-3708</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮字小板小瀬13-4</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>中島内科クリニック</name>
+      <address>岩手県盛岡市月が丘2-8-30</address>
+      <description><![CDATA[電話番号: 019-646-1903<br>所在地: 岩手県盛岡市月が丘2-8-30]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-646-1903</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市月が丘2-8-30</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>なかつか消化器内科クリニック</name>
+      <address>岩手県盛岡市太田5丁目10-27</address>
+      <description><![CDATA[電話番号: 019-613-2727<br>所在地: 岩手県盛岡市太田5丁目10-27]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-613-2727</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市太田5丁目10-27</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>長橋皮ふ科クリニック</name>
+      <address>岩手県盛岡市長橋町38-7</address>
+      <description><![CDATA[電話番号: 019-613-2121<br>所在地: 岩手県盛岡市長橋町38-7]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-613-2121</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市長橋町38-7</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>中村内科医院</name>
+      <address>岩手県盛岡市若園町2-5</address>
+      <description><![CDATA[電話番号: 019-622-7103<br>所在地: 岩手県盛岡市若園町2-5]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-7103</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市若園町2-5</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>西松園内科クリニック</name>
+      <address>岩手県盛岡市西松園3-22-1</address>
+      <description><![CDATA[電話番号: 019-662-1622<br>所在地: 岩手県盛岡市西松園3-22-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-1622</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市西松園3-22-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>二宮内科クリニック</name>
+      <address>岩手県盛岡市愛宕町2-47</address>
+      <description><![CDATA[電話番号: 019-621-8181<br>所在地: 岩手県盛岡市愛宕町2-47]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-621-8181</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市愛宕町2-47</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>乳腺外科いしだ外科胃腸科クリニック</name>
+      <address>岩手県盛岡市盛岡駅前通14-9平戸屋ビル3F</address>
+      <description><![CDATA[電話番号: 019-625-8777<br>所在地: 岩手県盛岡市盛岡駅前通14-9平戸屋ビル3F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-625-8777</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市盛岡駅前通14-9平戸屋ビル3F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>原田内科脳神経機能クリニック</name>
+      <address>岩手県盛岡市山岸3-2-1山岸中央ビル1F</address>
+      <description><![CDATA[電話番号: 019-662-7533<br>所在地: 岩手県盛岡市山岸3-2-1山岸中央ビル1F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-7533</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市山岸3-2-1山岸中央ビル1F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ひめかみ病院</name>
+      <address>岩手県盛岡市下田字陣場41-10</address>
+      <description><![CDATA[電話番号: 019-683-2121<br>所在地: 岩手県盛岡市下田字陣場41-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-683-2121</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市下田字陣場41-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>平野医院</name>
+      <address>岩手県盛岡市西青山2-18-60</address>
+      <description><![CDATA[電話番号: 019-648-1395<br>所在地: 岩手県盛岡市西青山2-18-60]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-648-1395</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市西青山2-18-60</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>藤島内科医院</name>
+      <address>岩手県盛岡市愛宕町4-18</address>
+      <description><![CDATA[電話番号: 019-622-4453<br>所在地: 岩手県盛岡市愛宕町4-18]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-4453</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市愛宕町4-18</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>船山内科クリニック</name>
+      <address>岩手県盛岡市下ノ橋町4-15</address>
+      <description><![CDATA[電話番号: 019-606-0812<br>所在地: 岩手県盛岡市下ノ橋町4-15]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-606-0812</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市下ノ橋町4-15</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ブレスト齊藤外科クリニック</name>
+      <address>岩手県盛岡市本宮6-17-6</address>
+      <description><![CDATA[電話番号: 019-631-3770<br>所在地: 岩手県盛岡市本宮6-17-6]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-631-3770</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮6-17-6</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>細井外科医院</name>
+      <address>岩手県盛岡市大沢川原1-1-2</address>
+      <description><![CDATA[電話番号: 019-624-2715<br>所在地: 岩手県盛岡市大沢川原1-1-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-2715</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市大沢川原1-1-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>本間内科医院</name>
+      <address>岩手県盛岡市上田2-20-13</address>
+      <description><![CDATA[電話番号: 019-622-5970<br>所在地: 岩手県盛岡市上田2-20-13]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-622-5970</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上田2-20-13</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>前川内科クリニック</name>
+      <address>岩手県盛岡市新田町9-11</address>
+      <description><![CDATA[電話番号: 019-624-3313<br>所在地: 岩手県盛岡市新田町9-11]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-3313</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市新田町9-11</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>まさと脳神経内科クリニック</name>
+      <address>岩手県盛岡市向中野5-18-30</address>
+      <description><![CDATA[電話番号: 019-601-5800<br>所在地: 岩手県盛岡市向中野5-18-30]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-5800</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市向中野5-18-30</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>松尾医院</name>
+      <address>岩手県盛岡市みたけ2-21-23</address>
+      <description><![CDATA[電話番号: 019-681-2916<br>所在地: 岩手県盛岡市みたけ2-21-23]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-681-2916</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市みたけ2-21-23</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>松園第二病院</name>
+      <address>岩手県盛岡市西松園3-22-3</address>
+      <description><![CDATA[電話番号: 019-662-0100<br>所在地: 岩手県盛岡市西松園3-22-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-662-0100</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市西松園3-22-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>マリオス小林内科クリニック</name>
+      <address>岩手県盛岡市盛岡駅西通2-9-1マリオス11F</address>
+      <description><![CDATA[電話番号: 019-621-5222<br>所在地: 岩手県盛岡市盛岡駅西通2-9-1マリオス11F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-621-5222</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市盛岡駅西通2-9-1マリオス11F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>三島内科医院</name>
+      <address>岩手県盛岡市紺屋町1-34</address>
+      <description><![CDATA[電話番号: 019-653-4511<br>所在地: 岩手県盛岡市紺屋町1-34]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-653-4511</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市紺屋町1-34</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>水沼内科循環器クリニック</name>
+      <address>岩手県盛岡市中央通2-11-12明治中央通ビル1F</address>
+      <description><![CDATA[電話番号: 019-604-8002<br>所在地: 岩手県盛岡市中央通2-11-12明治中央通ビル1F]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-604-8002</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中央通2-11-12明治中央通ビル1F</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>三田記念病院</name>
+      <address>岩手県盛岡市加賀野3-14-1</address>
+      <description><![CDATA[電話番号: 019-624-3251<br>所在地: 岩手県盛岡市加賀野3-14-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-3251</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市加賀野3-14-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>みたけ消化器内科クリニック</name>
+      <address>岩手県盛岡市みたけ4-11-46</address>
+      <description><![CDATA[電話番号: 019-641-8511<br>所在地: 岩手県盛岡市みたけ4-11-46]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-641-8511</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市みたけ4-11-46</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>三船内科</name>
+      <address>岩手県盛岡市天昌寺町9-10</address>
+      <description><![CDATA[電話番号: 019-646-2310<br>所在地: 岩手県盛岡市天昌寺町9-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-646-2310</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市天昌寺町9-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>見前ファミリークリニック</name>
+      <address>岩手県盛岡市三本柳12-20-1</address>
+      <description><![CDATA[電話番号: 019-632-6300<br>所在地: 岩手県盛岡市三本柳12-20-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-632-6300</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市三本柳12-20-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>三本柳かんのクリニック</name>
+      <address>岩手県盛岡市三本柳23-10-5</address>
+      <description><![CDATA[電話番号: 019-638-7070<br>所在地: 岩手県盛岡市三本柳23-10-5]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-638-7070</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市三本柳23-10-5</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>みやもと内科クリニック</name>
+      <address>岩手県盛岡市上厨川字杉原101-4</address>
+      <description><![CDATA[電話番号: 019-601-3810<br>所在地: 岩手県盛岡市上厨川字杉原101-4]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-601-3810</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市上厨川字杉原101-4</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>メディケアプラザ中央通りクリニック</name>
+      <address>岩手県盛岡市中央通3-16-23</address>
+      <description><![CDATA[電話番号: 019-654-3781<br>所在地: 岩手県盛岡市中央通3-16-23]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-654-3781</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中央通3-16-23</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>本宮Cクリニック</name>
+      <address>岩手県盛岡市向中野3-10-3</address>
+      <description><![CDATA[電話番号: 019-631-2381<br>所在地: 岩手県盛岡市向中野3-10-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-631-2381</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市向中野3-10-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>もりおか胃腸科内科クリニック</name>
+      <address>岩手県盛岡市中ノ橋通2-3-2</address>
+      <description><![CDATA[電話番号: 019-606-6611<br>所在地: 岩手県盛岡市中ノ橋通2-3-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-606-6611</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市中ノ橋通2-3-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡おおうら脳神経内科クリニック</name>
+      <address>岩手県盛岡市青山3-27-5</address>
+      <description><![CDATA[電話番号: 019-613-8007<br>所在地: 岩手県盛岡市青山3-27-5]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-613-8007</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市青山3-27-5</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡駅前おおば脳神経内科クリニック</name>
+      <address>岩手県盛岡市盛岡駅前通13-8</address>
+      <description><![CDATA[電話番号: 019-626-4141<br>所在地: 岩手県盛岡市盛岡駅前通13-8]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-626-4141</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市盛岡駅前通13-8</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>もりおか往診ホームケアクリニック</name>
+      <address>岩手県盛岡市北飯岡3-20-3</address>
+      <description><![CDATA[電話番号: 019-614-0133<br>所在地: 岩手県盛岡市北飯岡3-20-3]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-614-0133</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北飯岡3-20-3</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡さくらクリニック</name>
+      <address>岩手県盛岡市みたけ4-36-32</address>
+      <description><![CDATA[電話番号: 019-645-3939<br>所在地: 岩手県盛岡市みたけ4-36-32]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-645-3939</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市みたけ4-36-32</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡さんさ病院</name>
+      <address>岩手県盛岡市館向町4-8</address>
+      <description><![CDATA[電話番号: 019-624-2250<br>所在地: 岩手県盛岡市館向町4-8]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-624-2250</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市館向町4-8</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡市立病院</name>
+      <address>岩手県盛岡市本宮5-15-1</address>
+      <description><![CDATA[電話番号: 019-635-0101<br>所在地: 岩手県盛岡市本宮5-15-1]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-635-0101</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市本宮5-15-1</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>もりおか腎・透析クリニック</name>
+      <address>岩手県盛岡市新庄町2番12号</address>
+      <description><![CDATA[電話番号: 019-656-7781<br>所在地: 岩手県盛岡市新庄町2番12号]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-656-7781</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市新庄町2番12号</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡つなぎ温泉病院</name>
+      <address>岩手県盛岡市繋字尾入野64-9</address>
+      <description><![CDATA[電話番号: 019-689-2101<br>所在地: 岩手県盛岡市繋字尾入野64-9]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-689-2101</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市繋字尾入野64-9</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡南病院</name>
+      <address>岩手県盛岡市津志田13-18-4</address>
+      <description><![CDATA[電話番号: 019-638-2020<br>所在地: 岩手県盛岡市津志田13-18-4]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-638-2020</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田13-18-4</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>盛岡友愛病院</name>
+      <address>岩手県盛岡市永井12-10</address>
+      <description><![CDATA[電話番号: 019-638-2222<br>所在地: 岩手県盛岡市永井12-10]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-638-2222</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市永井12-10</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>もりた整形外科</name>
+      <address>岩手県盛岡市山岸1-3-8</address>
+      <description><![CDATA[電話番号: 019-652-5858<br>所在地: 岩手県盛岡市山岸1-3-8]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-652-5858</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市山岸1-3-8</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>森谷医院</name>
+      <address>岩手県盛岡市高松3-11-29</address>
+      <description><![CDATA[電話番号: 019-663-1247<br>所在地: 岩手県盛岡市高松3-11-29]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-663-1247</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市高松3-11-29</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>八角医院</name>
+      <address>岩手県盛岡市好摩字夏間木101-2</address>
+      <description><![CDATA[電話番号: 019-682-0007<br>所在地: 岩手県盛岡市好摩字夏間木101-2]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-682-0007</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市好摩字夏間木101-2</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>八角病院</name>
+      <address>岩手県盛岡市好摩字夏間木70-190</address>
+      <description><![CDATA[電話番号: 019-682-0201<br>所在地: 岩手県盛岡市好摩字夏間木70-190]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-682-0201</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市好摩字夏間木70-190</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>やまだ胃腸内科クリニック</name>
+      <address>岩手県盛岡市津志田中央2-18-31</address>
+      <description><![CDATA[電話番号: 019-614-0180<br>所在地: 岩手県盛岡市津志田中央2-18-31]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-614-0180</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市津志田中央2-18-31</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ゆい内科呼吸器科クリニック</name>
+      <address>岩手県盛岡市向中野2-54-18</address>
+      <description><![CDATA[電話番号: 019-631-1159<br>所在地: 岩手県盛岡市向中野2-54-18]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-631-1159</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市向中野2-54-18</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>ゆうあいの街クリニック</name>
+      <address>岩手県盛岡市北飯岡1-2-25</address>
+      <description><![CDATA[電話番号: 019-634-1100<br>所在地: 岩手県盛岡市北飯岡1-2-25]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-634-1100</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市北飯岡1-2-25</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>吉田消化器科内科</name>
+      <address>岩手県盛岡市東見前8-20-16</address>
+      <description><![CDATA[電話番号: 019-632-4600<br>所在地: 岩手県盛岡市東見前8-20-16]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-632-4600</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市東見前8-20-16</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+    <Placemark>
+      <name>わたなべ内科・脳神経内科クリニック</name>
+      <address>岩手県盛岡市高松3-9-8</address>
+      <description><![CDATA[電話番号: 019-605-1117<br>所在地: 岩手県盛岡市高松3-9-8]]></description>
+      <styleUrl>#icon-1624-9C27B0-labelson</styleUrl>
+      <ExtendedData>
+        <Data name="電話番号">
+          <value>019-605-1117</value>
+        </Data>
+        <Data name="所在地">
+          <value>岩手県盛岡市高松3-9-8</value>
+        </Data>
+      </ExtendedData>
+    </Placemark>
+  </Document>
+</kml>
