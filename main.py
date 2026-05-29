@@ -14,15 +14,25 @@ CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 @app.route("/callback", methods=['POST'])
 def callback():
     body = request.get_data(as_text=True)
+    print(f"Received LINE Data: {body}")  # 【デバッグ用】LINEから届いた生データをログに出す
+    
     try:
         data = json.loads(body)
         events = data.get('events', [])
+        
+        # もしeventsが空っぽ（LINEの検証ボタンの電波など）なら200で終了
+        if not events:
+            return 'OK'
+            
         for event in events:
             reply_token = event.get('replyToken')
             message = event.get('message', {})
+            msg_type = message.get('type')
+            
+            print(f"Message Type: {msg_type}")  # 【デバッグ用】届いたメッセージの種類をログに出す
             
             # 位置情報メッセージだけを処理
-            if message.get('type') == 'location':
+            if msg_type == 'location':
                 user_lat = message.get('latitude')
                 user_lng = message.get('longitude')
                 user_coords = (user_lat, user_lng)
@@ -30,6 +40,7 @@ def callback():
                 # 近い場所を計算して返信する
                 reply_text = calculate_closest_places(user_coords)
                 send_line_reply(reply_token, reply_text)
+                print("Success: Reply sent inside IF statement.")  # 【デバッグ用】IFを通った証拠
                 
         return 'OK'
     except Exception as e:
