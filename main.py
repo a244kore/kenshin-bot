@@ -27,25 +27,32 @@ def callback():
 
         for event in events:
             reply_token = event.get('replyToken')
-            message = event.get('message', {})
-            msg_type = message.get('type')
+            event_type = event.get('type')  # ★イベントの種類（message、followなど）を取得
+            
+            print(f"Received Event Type: {event_type}")
 
-            print(f"Message Type: {msg_type}")
+            # 1. ユーザーから「メッセージ」が届いた場合
+            if event_type == 'message':
+                message = event.get('message', {})
+                msg_type = message.get('type')
+                print(f"Message Type: {msg_type}")
 
-            # 位置情報メッセージだけ処理
-            if msg_type == 'location':
-                user_lat = message.get('latitude')
-                user_lng = message.get('longitude')
-                user_coords = (user_lat, user_lng)
+                # 2. そのメッセージが「位置情報（location）」の場合だけ処理
+                if msg_type == 'location':
+                    user_lat = message.get('latitude')
+                    user_lng = message.get('longitude')
+                    user_coords = (user_lat, user_lng)
 
-                # 最寄り健診場所を計算
-                reply_text = calculate_closest_places(user_coords)
+                    # 最寄り健診場所を計算
+                    reply_text = calculate_closest_places(user_coords)
 
-                # LINEへ返信
-                send_line_reply(reply_token, reply_text)
-                print("Success: Reply sent successfully.")
-
-        return 'OK'
+                    # LINEへ返信
+                    send_line_reply(reply_token, reply_text)
+                    print("Success: Reply sent successfully.")
+            
+            # LINE Developersの「検証」ボタンを押したときのダミーデータ対策
+            elif reply_token == '00000000000000000000000000000000' or reply_token == 'ffffffffffffffffffffffffffffffff':
+                print("LINE Webhook Verification captured.")
 
     except Exception as e:
         print(f"Callback Global Error: {e}")
