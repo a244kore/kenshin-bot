@@ -22,7 +22,13 @@ CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 @app.route("/callback", methods=["POST"])
 def callback():
 
-    print("CALLBACK HIT", flush=True)
+    print("STEP 1", flush=True)
+    
+    reply_text = calculate_closest_places(user_coords)
+    print("STEP 2", flush=True)
+
+    send_line_reply(reply_token, reply_text)
+    print("STEP 3", flush=True)
 
     body = request.get_data(as_text=True)
 
