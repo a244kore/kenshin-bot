@@ -146,6 +146,11 @@ def calculate_closest_places(user_coords):
 
     pins = load_kml()
 
+    print("STEP DEBUG PINS COUNT:", len(pins), flush=True)
+
+    if pins:
+        print("FIRST PIN:", pins[0], flush=True)
+
     results = []
 
     for pin in pins:
