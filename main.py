@@ -103,41 +103,40 @@ def load_kml():
     with open(KML_FILE, "r", encoding="utf-8") as f:
         kml_data = f.read()
 
-    placemarks = re.findall(r"<Placemark>.*?</Placemark>", kml_data, re.DOTALL)
+    print("KML SIZE:", len(kml_data), flush=True)
 
-    print(kml_data[:500], flush=True)
+    placemarks = re.findall(r"<Placemark.*?</Placemark>", kml_data, re.DOTALL)
 
     pins = []
 
     for pm in placemarks:
 
-        name_match = re.search(r"<name>(.*?)</name>", pm, re.DOTALL)
-        name = name_match.group(1).strip() if name_match else "名称未設定"
-
-        desc_match = re.search(r"<description>(.*?)</description>", pm, re.DOTALL)
-        desc = desc_match.group(1).strip() if desc_match else ""
+        name_match = re.search(r"<name>(.*?)</name>", pm)
+        name = name_match.group(1) if name_match else "名称不明"
 
         coord_match = re.search(r"<coordinates>(.*?)</coordinates>", pm)
 
-        if coord_match:
-            parts = coord_match.group(1).split(",")
+        if not coord_match:
+            continue
 
-            if len(parts) >= 2:
-                try:
-                    lon = float(parts[0])
-                    lat = float(parts[1])
+        parts = coord_match.group(1).split(",")
 
-                    pins.append({
-                        "name": name,
-                        "description": desc,
-                        "coords": (lat, lon)
-                    })
+        if len(parts) < 2:
+            continue
 
-                except:
-                    continue
+        try:
+            lon = float(parts[0])
+            lat = float(parts[1])
+
+            pins.append({
+                "name": name,
+                "coords": (lat, lon)
+            })
+
+        except:
+            continue
 
     return pins
-
 
 # =========================
 # 距離計算
