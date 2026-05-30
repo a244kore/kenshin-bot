@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
 
-KML_FILE = "kenshin.kml"  # ←あなたのKMLファイル名に合わせる
+KML_FILE = "mymap.kml"
 
 
 # =========================
