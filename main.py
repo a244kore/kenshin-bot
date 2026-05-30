@@ -4,16 +4,18 @@ import requests
 import re
 from flask import Flask, request
 from geopy.distance import geodesic
+from geopy.geocoders import Nominatim
 
 app = Flask(__name__)
 
 CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
+KML_FILE = "kenshin.kml"
 
-KML_FILE = "mymap.kml"
+geolocator = Nominatim(user_agent="line-bot")
 
 
 # =========================
-# TOP PAGE
+# TOP
 # =========================
 @app.route("/")
 def home():
@@ -21,7 +23,7 @@ def home():
 
 
 # =========================
-# LINE WEBHOOK
+# CALLBACK
 # =========================
 @app.route("/callback", methods=["POST"])
 def callback():
@@ -40,47 +42,65 @@ def callback():
 
         message = event.get("message", {})
         msg_type = message.get("type")
-
         reply_token = event.get("replyToken")
 
-        # -------------------------
-        # 位置情報のときだけ処理
-        # -------------------------
-        if msg_type == "location":
+        user_coords = resolve_location(message)
 
-            print("STEP 2: LOCATION RECEIVED", flush=True)
+        if not user_coords:
+            send_line_reply(reply_token, "住所やランドマークをもう少し詳しく送ってください")
+            continue
 
-            user_coords = (
-                float(message.get("latitude")),
-                float(message.get("longitude"))
-            )
+        print("STEP 2: LOCATION RESOLVED", flush=True)
 
-            reply_text = calculate_closest_places(user_coords)
+        reply_text = calculate_closest_places(user_coords)
 
-            send_line_reply(reply_token, reply_text)
+        send_line_reply(reply_token, reply_text)
 
-            print("STEP 3: REPLY DONE", flush=True)
-
-        else:
-            send_line_reply(reply_token, "位置情報を送ってください")
-
+        print("STEP 3: REPLY DONE", flush=True)
 
     return "OK", 200
 
 
 # =========================
-# KML読み込み＆解析
+# 入力 → 座標変換
+# =========================
+def resolve_location(message):
+
+    msg_type = message.get("type")
+
+    # ① 位置情報
+    if msg_type == "location":
+        return (
+            float(message.get("latitude")),
+            float(message.get("longitude"))
+        )
+
+    # ② テキスト（住所・ランドマーク）
+    if msg_type == "text":
+
+        text = message.get("text")
+
+        try:
+            location = geolocator.geocode(text)
+
+            if location:
+                return (location.latitude, location.longitude)
+
+        except Exception as e:
+            print("Geocode error:", e, flush=True)
+
+    return None
+
+
+# =========================
+# KML読み込み
 # =========================
 def load_kml():
 
     with open(KML_FILE, "r", encoding="utf-8") as f:
         kml_data = f.read()
 
-    placemarks = re.findall(
-        r"<Placemark>.*?</Placemark>",
-        kml_data,
-        re.DOTALL
-    )
+    placemarks = re.findall(r"<Placemark>.*?</Placemark>", kml_data, re.DOTALL)
 
     pins = []
 
@@ -88,11 +108,9 @@ def load_kml():
 
         name_match = re.search(r"<name>(.*?)</name>", pm, re.DOTALL)
         name = name_match.group(1).strip() if name_match else "名称未設定"
-        name = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", name)
 
         desc_match = re.search(r"<description>(.*?)</description>", pm, re.DOTALL)
         desc = desc_match.group(1).strip() if desc_match else ""
-        desc = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", desc)
 
         coord_match = re.search(r"<coordinates>(.*?)</coordinates>", pm)
 
@@ -117,7 +135,7 @@ def load_kml():
 
 
 # =========================
-# 距離計算メイン
+# 距離計算
 # =========================
 def calculate_closest_places(user_coords):
 
@@ -131,43 +149,46 @@ def calculate_closest_places(user_coords):
 
         desc = pin["description"]
 
-        # 電話番号抽出
         tel_match = re.search(r"0\d{1,4}-\d{1,4}-\d{4}", desc)
         tel = tel_match.group(0) if tel_match else "なし"
 
-        # 住所整理
         address = re.sub(r"<[^>]*>", "", desc).strip()
         address = address.replace(tel, "").strip()
 
         if not address:
             address = "住所不明"
 
+        map_url = f"https://www.google.com/maps?q={pin['coords'][0]},{pin['coords'][1]}"
+
         results.append({
             "name": pin["name"],
             "distance": distance,
             "address": address,
-            "tel": tel
+            "tel": tel,
+            "map": map_url
         })
 
     results.sort(key=lambda x: x["distance"])
     top5 = results[:5]
 
-    text = "📍 近くの健診場所 Top 5\n\n"
+    text = "📍 近くの健診場所 TOP5\n\n"
 
     for i, r in enumerate(top5, 1):
+
         text += (
-            f"{i}位: {r['name']}\n"
-            f"📏 約{r['distance']:.2f}km\n"
+            f"{i}位 {r['name']}\n"
+            f"📏 {r['distance']:.2f}km\n"
             f"🏠 {r['address']}\n"
             f"📞 {r['tel']}\n"
-            "------------------\n"
+            f"🗺 {r['map']}\n"
+            "-------------------\n"
         )
 
     return text
 
 
 # =========================
-# LINE返信
+# LINE送信
 # =========================
 def send_line_reply(reply_token, text):
 
@@ -195,4 +216,5 @@ def send_line_reply(reply_token, text):
 # START
 # =========================
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
