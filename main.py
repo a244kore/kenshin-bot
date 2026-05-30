@@ -56,13 +56,16 @@ def load_kml():
 # =========================
 # geocode（キャッシュ付き）
 # =========================
+import time
+time.sleep(1)
+
 def safe_geocode(text):
 
     if text in geo_cache:
         return geo_cache[text]
 
     try:
-        loc = geolocator.geocode(text)
+        loc = geolocator.geocode(text, timeout=10)
 
         if loc:
             geo_cache[text] = loc
