@@ -9,116 +9,16 @@ from geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
-KML_FILE = "mymap.kml"
+KML_FILE = "kenshin.kml"
 
 geolocator = Nominatim(user_agent="line-bot", timeout=10)
 
-# =========================
-# キャッシュ（超重要）
-# =========================
 geo_cache = {}
-
-# =========================
-# KMLは起動時に読み込み
-# =========================
 PINS = []
 
 
 # =========================
-# TOP
-# =========================
-@app.route("/")
-def home():
-    return "LINE BOT OK", 200
-
-
-# =========================
-# LINE webhook
-# =========================
-@app.route("/callback", methods=["POST"])
-def callback():
-
-    print("STEP 1: CALLBACK HIT", flush=True)
-
-    body = request.get_data(as_text=True)
-    data = json.loads(body)
-
-    for event in data.get("events", []):
-
-        if event.get("type") != "message":
-            continue
-
-        message = event.get("message", {})
-        reply_token = event.get("replyToken")
-
-        user_coords = resolve_location(message)
-
-        if not user_coords:
-            send_reply(reply_token, "住所かランドマークを送ってください")
-            continue
-
-        print("STEP 2: LOCATION OK", flush=True)
-        print("PINS COUNT:", len(PINS), flush=True)
-
-        reply_text = calculate_top5(user_coords)
-
-        send_reply(reply_token, reply_text)
-
-        print("STEP 3: DONE", flush=True)
-
-    return "OK", 200
-
-
-# =========================
-# 入力解析（位置・住所・ランドマーク）
-# =========================
-def resolve_location(message):
-
-    msg_type = message.get("type")
-
-    # 位置情報
-    if msg_type == "location":
-        return (
-            float(message.get("latitude")),
-            float(message.get("longitude"))
-        )
-
-    # テキスト（住所・ランドマーク）
-    if msg_type == "text":
-
-        text = message.get("text")
-
-        location = safe_geocode(text)
-
-        if location:
-            return (location.latitude, location.longitude)
-
-    return None
-
-
-# =========================
-# ジオコーディング（安全版）
-# =========================
-def safe_geocode(text):
-
-    if text in geo_cache:
-        return geo_cache[text]
-
-    try:
-        loc = geolocator.geocode(text, timeout=10)
-
-        if loc:
-            geo_cache[text] = loc
-            return loc
-
-    except Exception as e:
-        print("geocode error:", e, flush=True)
-
-    return None
-
-
-# =========================
-# KMLロード（1回だけ）
+# 起動時KMLロード
 # =========================
 def load_kml():
 
@@ -162,22 +62,63 @@ def load_kml():
 
 
 # =========================
+# geocode（キャッシュ付き）
+# =========================
+def safe_geocode(text):
+
+    if text in geo_cache:
+        return geo_cache[text]
+
+    try:
+        loc = geolocator.geocode(text)
+
+        if loc:
+            geo_cache[text] = loc
+            return loc
+
+    except Exception as e:
+        print("geocode error:", e, flush=True)
+
+    return None
+
+
+# =========================
+# 入力解析
+# =========================
+def resolve_location(message):
+
+    msg_type = message.get("type")
+
+    if msg_type == "location":
+        return (
+            float(message.get("latitude")),
+            float(message.get("longitude"))
+        )
+
+    if msg_type == "text":
+
+        text = message.get("text")
+        loc = safe_geocode(text)
+
+        if loc:
+            return (loc.latitude, loc.longitude)
+
+    return None
+
+
+# =========================
 # TOP5計算
 # =========================
 def calculate_top5(user_coords):
-    print("USER:", user_coords, flush=True)
 
     results = []
+
+    print("PINS COUNT:", len(PINS), flush=True)
+
     for pin in PINS:
 
-    dist = geodesic(user_coords, pin["coords"]).km
-
-    print("DIST:", dist, flush=True)
-
-    break
-
-    print("DIST:", dist, flush=True) 
         dist = geodesic(user_coords, pin["coords"]).km
+
         print("DIST:", dist, flush=True)
 
         results.append({
@@ -192,7 +133,7 @@ def calculate_top5(user_coords):
     if not top5:
         return "近くの施設が見つかりませんでした"
 
-    text = "📍 近い順TOP5\n\n"
+    text = "📍 近くの施設 TOP5\n\n"
 
     for i, r in enumerate(top5, 1):
         text += f"{i}. {r['name']}\n📏 {r['distance']:.2f}km\n\n"
@@ -220,14 +161,49 @@ def send_reply(reply_token, text):
     }
 
     try:
-        res = requests.post(url, headers=headers, json=payload, timeout=10)
-        print("LINE STATUS:", res.status_code, flush=True)
+        requests.post(url, headers=headers, json=payload, timeout=10)
     except Exception as e:
-        print("LINE ERROR:", e, flush=True)
+        print("LINE error:", e, flush=True)
 
 
 # =========================
-# 起動時にKMLロード
+# WEBHOOK
+# =========================
+@app.route("/callback", methods=["POST"])
+def callback():
+
+    print("STEP 1: CALLBACK HIT", flush=True)
+
+    body = request.get_data(as_text=True)
+    data = json.loads(body)
+
+    for event in data.get("events", []):
+
+        if event.get("type") != "message":
+            continue
+
+        message = event.get("message", {})
+        reply_token = event.get("replyToken")
+
+        user_coords = resolve_location(message)
+
+        if not user_coords:
+            send_reply(reply_token, "住所かランドマークを送ってください")
+            continue
+
+        print("STEP 2: LOCATION OK", flush=True)
+
+        reply_text = calculate_top5(user_coords)
+
+        send_reply(reply_token, reply_text)
+
+        print("STEP 3: DONE", flush=True)
+
+    return "OK", 200
+
+
+# =========================
+# START
 # =========================
 if __name__ == "__main__":
     PINS = load_kml()
