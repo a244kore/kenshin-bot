@@ -34,32 +34,24 @@ def load_kml():
         name = re.search(r"<name>(.*?)</name>", pm)
         name = name.group(1) if name else "名称不明"
 
-        coord = re.search(r"<coordinates>(.*?)</coordinates>", pm)
+        # ★ address方式に対応
+        address = re.search(r"<address>(.*?)</address>", pm)
+        address = address.group(1) if address else ""
 
-        if not coord:
+        if not address:
             continue
 
-        parts = coord.group(1).split(",")
+        loc = safe_geocode(address)
 
-        if len(parts) < 2:
-            continue
-
-        try:
-            lon = float(parts[0])
-            lat = float(parts[1])
-
+        if loc:
             pins.append({
                 "name": name,
-                "coords": (lat, lon)
+                "coords": (loc.latitude, loc.longitude)
             })
-
-        except:
-            continue
 
     print("PINS LOADED:", len(pins), flush=True)
 
     return pins
-
 
 # =========================
 # geocode（キャッシュ付き）
