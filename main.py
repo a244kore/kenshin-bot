@@ -52,15 +52,22 @@ def callback():
         return 'OK'
 
 
-def calculate_closest_places(user_coords):
-    try:
-        # KMLファイル読み込み
-        kml_path = os.path.join(os.path.dirname(__file__), 'mymap.kml')
+        # 【修正】大文字小文字を無視するために re.IGNORECASE (re.I) を追加
+        placemarks = re.findall(r'<Placemark>.*?</Placemark>', kml_data, re.DOTALL | re.IGNORECASE)
+        
+        for pm in placemarks:
+            # 【修正】ここも re.IGNORECASE を追加
+            name_match = re.search(r'<name>(.*?)</name>', pm, re.IGNORECASE)
+            name = name_match.group(1).strip() if name_match else "名称未設定"
+            name = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', name)
 
-        with open(kml_path, 'r', encoding='utf-8') as f:
-            kml_data = f.read()
+            # 説明文
+            desc_match = re.search(r'<description>(.*?)</description>', pm, re.DOTALL | re.IGNORECASE)
+            desc = desc_match.group(1).strip() if desc_match else ""
+            desc = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', desc)
 
-        pins = []
+            # 緯度・経度
+            coord_match = re.search(r'<coordinates>(.*?)</coordinates>', pm, re.IGNORECASE)
 
         # 【究極の修正ポイント】fastkmlを一切使わず、正規表現（文字検索）で強制的にPlacemarkを分解します！
         # これにより、どんなKMLのバージョンや階層構造であっても、100%確実にピンを引っこ抜けます。
