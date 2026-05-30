@@ -171,7 +171,9 @@ def calculate_top5(user_coords):
     for pin in PINS:
 
     dist = geodesic(user_coords, pin["coords"]).km
-    print("DIST:", dist, flush=True) 
+
+    print("DIST:", dist, flush=True)
+
     break
 
     print("DIST:", dist, flush=True) 
