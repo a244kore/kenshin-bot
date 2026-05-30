@@ -17,13 +17,13 @@ CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 @app.route("/callback", methods=["POST"])
 def callback():
 
-    print("===== CALLBACK START =====")
+    print("CALLBACK HIT", flush=True)
 
     body = request.get_data(as_text=True)
 
-    print(body)
+    print(body, flush=True)
 
-    return "OK"
+    return "OK", 200
 
     try:
         data = json.loads(body)
