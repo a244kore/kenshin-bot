@@ -39,9 +39,20 @@ def callback():
 
                 # 2. そのメッセージが「位置情報（location）」の場合だけ処理
                 if msg_type == 'location':
+                    # 【修正】messageの中に確実にデータがあるか安全に取得する
                     user_lat = message.get('latitude')
                     user_lng = message.get('longitude')
-                    user_coords = (user_lat, user_lng)
+                    
+                    # ログを出して、本当に緯度経度が取れているか目視確認する
+                    print(f"🌍 User Coordinates Captured -> Lat: {user_lat}, Lng: {user_lng}")
+
+                    # 万が一緯度経度が None や空だった場合は処理をスキップする
+                    if user_lat is None or user_lng is None:
+                        print("🚨 Error: Latitude or Longitude is missing in the message.")
+                        continue
+
+                    # 数値（float）に型変換を保証する
+                    user_coords = (float(user_lat), float(user_lng))
 
                     # 最寄り健診場所を計算
                     reply_text = calculate_closest_places(user_coords)
