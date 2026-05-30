@@ -30,8 +30,10 @@ def callback():
     event = data["events"][0]
     reply_token = event["replyToken"]
 
-    # 仮返信（動作確認）
-    send_line_reply(reply_token, "受信OK")
+    # 強制返信（テスト）
+    send_line_reply(reply_token, "受信OKです")
+
+    print("STEP 2", flush=True)
 
     return "OK", 200
 
