@@ -23,16 +23,15 @@ CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 def callback():
 
     print("STEP 1", flush=True)
-    
-    reply_text = calculate_closest_places(user_coords)
-    print("STEP 2", flush=True)
-
-    send_line_reply(reply_token, reply_text)
-    print("STEP 3", flush=True)
 
     body = request.get_data(as_text=True)
+    data = json.loads(body)
 
-    print(body, flush=True)
+    event = data["events"][0]
+    reply_token = event["replyToken"]
+
+    # 仮返信（動作確認）
+    send_line_reply(reply_token, "受信OK")
 
     return "OK", 200
 
