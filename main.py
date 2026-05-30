@@ -1,3 +1,5 @@
+print("APP VERSION 2026-05-30-01", flush=True)
+
 import os
 import re
 import json
