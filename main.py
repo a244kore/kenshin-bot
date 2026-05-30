@@ -11,6 +11,11 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+# トップページ（ブラウザで開く用）
+@app.route("/")
+def home():
+    return "LINE BOT OK", 200
+
 # LINEアクセストークン
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
