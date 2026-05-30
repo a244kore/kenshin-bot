@@ -164,12 +164,18 @@ def load_kml():
 # TOP5計算
 # =========================
 def calculate_top5(user_coords):
+    print("USER:", user_coords, flush=True)
 
     results = []
-
     for pin in PINS:
 
+    dist = geodesic(user_coords, pin["coords"]).km
+    print("DIST:", dist, flush=True) 
+    break
+
+    print("DIST:", dist, flush=True) 
         dist = geodesic(user_coords, pin["coords"]).km
+        print("DIST:", dist, flush=True)
 
         results.append({
             "name": pin["name"],
