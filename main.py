@@ -53,6 +53,9 @@ def callback():
         print("STEP 2: LOCATION RESOLVED", flush=True)
 
         reply_text = calculate_closest_places(user_coords)
+        print("PINS COUNT:", len(pins), flush=True)
+        print("TOTAL RESULTS:", len(results), flush=True)
+        print("TOP LIST:", top5, flush=True)
 
         send_line_reply(reply_token, reply_text)
 
@@ -101,6 +104,8 @@ def load_kml():
         kml_data = f.read()
 
     placemarks = re.findall(r"<Placemark>.*?</Placemark>", kml_data, re.DOTALL)
+
+    print(kml_data[:500], flush=True)
 
     pins = []
 
