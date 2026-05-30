@@ -9,7 +9,7 @@ from geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
-KML_FILE = "kenshin.kml"
+KML_FILE = "mymap.kml"
 
 geolocator = Nominatim(user_agent="line-bot")
 
