@@ -12,11 +12,16 @@ app = Flask(__name__)
 # LINEアクセストークン
 CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
-
-@app.route("/callback", methods=['POST'])
+@app.route("/callback", methods=["POST"])
 def callback():
+
+    print("===== CALLBACK START =====")
+
     body = request.get_data(as_text=True)
-    print(f"Received LINE Data: {body}")
+
+    print(body)
+
+    return "OK"
 
     try:
         data = json.loads(body)
