@@ -58,6 +58,7 @@ def callback():
             continue
 
         print("STEP 2: LOCATION OK", flush=True)
+        print("PINS COUNT:", len(PINS), flush=True)
 
         reply_text = calculate_top5(user_coords)
 
