@@ -111,29 +111,25 @@ def load_kml():
 
     for pm in placemarks:
 
-        name_match = re.search(r"<name>(.*?)</name>", pm)
-        name = name_match.group(1) if name_match else "名称不明"
+        name = re.search(r"<name>(.*?)</name>", pm)
+        name = name.group(1) if name else "名称不明"
 
-        coord_match = re.search(r"<coordinates>(.*?)</coordinates>", pm)
+        # ★ coordinatesじゃなくて住所から緯度経度を取る必要あり
+        address = re.search(r"<address>(.*?)</address>", pm)
+        address = address.group(1) if address else ""
 
-        if not coord_match:
-            continue
-
-        parts = coord_match.group(1).split(",")
-
-        if len(parts) < 2:
-            continue
-
+        # geocoding（超重要）
         try:
-            lon = float(parts[0])
-            lat = float(parts[1])
+            location = geolocator.geocode(address)
 
-            pins.append({
-                "name": name,
-                "coords": (lat, lon)
-            })
+            if location:
+                pins.append({
+                    "name": name,
+                    "coords": (location.latitude, location.longitude)
+                })
 
-        except:
+        except Exception as e:
+            print("geocode error:", e, flush=True)
             continue
 
     return pins
@@ -144,8 +140,7 @@ def load_kml():
 def calculate_closest_places(user_coords):
 
     pins = load_kml()
-
-    print("STEP DEBUG PINS COUNT:", len(pins), flush=True)
+    print("PINS COUNT:", len(pins), flush=True)
 
     if pins:
         print("FIRST PIN:", pins[0], flush=True)
